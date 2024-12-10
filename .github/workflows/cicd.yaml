@@ -14,12 +14,13 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
-        run: cd spring-aws
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
+      - name: Move to project directory
+        run: cd spring-aws
       - name: Build Project
         run: mvn clean install -DskipTests
       - name: Login to Docker Hub
